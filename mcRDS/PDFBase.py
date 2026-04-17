@@ -28,7 +28,7 @@ class PDFBase:
 
     def __call__(self, key):
         '''
-        pdf = PDFs('gauss')
+        pdf = PDFBase('gauss')
         pdf(key)
         '''
         return self.pdf[key]
@@ -78,13 +78,13 @@ class PDFBase:
     def render_p(p, args):
         '''確率密度関数の出力用整形'''
         psymbol = sp.Function('p')
-        return PDFs.render_eqn( psymbol(*args), p )
+        return PDFBase.render_eqn( psymbol(*args), p )
 
     @staticmethod
     def render_prm(prm, vals):
         '''パラメータの出力用整形'''
         valssymbol = f"{vals}"
-        return PDFs.render_eqn( prm, valssymbol )
+        return PDFBase.render_eqn( prm, valssymbol )
 
     def summary(self, simplify=False):
         '''概要の出力'''
