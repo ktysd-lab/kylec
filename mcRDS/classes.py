@@ -217,3 +217,5 @@ class PDFs(PDFBase):
             'x':    xs,     #独立変数
             'prm':  prm     #パラメータ
         }
+
+__all__ = ['PDFBase', 'PDFs']
