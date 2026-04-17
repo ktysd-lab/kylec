@@ -74,17 +74,15 @@ class PDFBase:
         '''等式の出力用整形'''
         return Math( sp.latex(left) + '=' + sp.latex(right) )
 
-    @staticmethod
-    def render_p(p, args):
+    def render_p(self, p, args):
         '''確率密度関数の出力用整形'''
         psymbol = sp.Function('p')
-        return PDFBase.render_eqn( psymbol(*args), p )
+        return self.render_eqn( psymbol(*args), p )
 
-    @staticmethod
-    def render_prm(prm, vals):
+    def render_prm(self, prm, vals):
         '''パラメータの出力用整形'''
         valssymbol = f"{vals}"
-        return PDFBase.render_eqn( prm, valssymbol )
+        return self.render_eqn( prm, valssymbol )
 
     def summary(self, simplify=False):
         '''概要の出力'''
