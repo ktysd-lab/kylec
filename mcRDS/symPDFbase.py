@@ -7,7 +7,7 @@ from matplotlib import cm  #3Dプロットのカラーマップ
 import sympy as sp  #数式処理
 from IPython.display import Math #display の整形用
 
-class PDFBase:
+class symPDFbase:
     '''
     確率密度関数の数式処理
     '''
@@ -27,7 +27,7 @@ class PDFBase:
 
     def __call__(self, key):
         '''
-        pdf = PDFBase('gauss')
+        pdf = symPDFbase('gauss')
         pdf(key)
         '''
         return self.pdf[key]

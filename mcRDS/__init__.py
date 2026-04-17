@@ -1,2 +1,2 @@
-from .PDFBase import PDFBase
-from .PDFs import PDFs
+from .symPDFbase import symPDFbase
+from .symPDFs import symPDFs

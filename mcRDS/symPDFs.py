@@ -2,9 +2,9 @@
 # 2026-04-17 Katsutoshi Yoshida
 # 
 import sympy as sp
-from . import PDFBase
+from . import symPDFbase
 
-class PDFs(PDFBase):
+class symPDFs(symPDFbase):
     '''
     確率密度関数の定義クラス
     '''
