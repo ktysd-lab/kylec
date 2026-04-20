@@ -52,6 +52,14 @@ class symPDFbase:
         return expr.replace(sp.exp, lambda arg: sp.exp(sp.factor(arg)))
         # return expr.replace(sp.exp, lambda arg: sp.exp(sp.simplify(arg)))
 
+    @staticmethod
+    def gauss2d_simplify(expr, r):
+        '''結合確率密度の整理 by dummy := sqrt(1-r**2)>0'''
+        dummy = sp.symbols(r'SQRT(1-rr)', positive=True)
+        expr = expr.subs(r**2, 1 - dummy**2) #正数 dummy が効く
+        expr = expr.subs(dummy**2, 1 - r**2)
+        return expr
+
     ##### 平均操作 #####
     def averaging( self, fx, x ):
         '''平均操作'''
