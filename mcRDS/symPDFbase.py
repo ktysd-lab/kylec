@@ -57,6 +57,7 @@ class symPDFbase:
         '''結合確率密度の整理 by dummy := sqrt(1-r**2)>0'''
         dummy = sp.symbols(r'SQRT(1-rr)', positive=True)
         expr = expr.subs(r**2, 1 - dummy**2) #正数 dummy が効く
+        expr = sp.simplify(expr)
         expr = expr.subs(dummy**2, 1 - r**2)
         return expr
 
