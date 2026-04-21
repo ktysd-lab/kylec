@@ -81,3 +81,19 @@ class symPDFs(symPDFbase):
             'x':    xs,     #独立変数
             'prm':  prm     #パラメータ
         }
+
+    def rho_dummify(self, expr):
+        '''
+        簡約用の正数 rho_dummy := sqrt(1-rho**2)>0
+        - positive=True の変数に置き換えて Sympy に整理を促す
+        '''
+        rho = self.pdf['prm'][4]
+        self.rho_dummy = sp.symbols(r'SQRT(1-rho2)', positive=True)
+        expr = expr.subs(rho**2, 1 - self.rho_dummy**2)
+        return expr
+
+    def rho_undummify(self, expr):
+        '''簡約用の正数 rho_dummy を元に戻す'''
+        rho = self.pdf['prm'][4]
+        expr = expr.subs(self.rho_dummy**2, 1 - rho**2)
+        return expr
