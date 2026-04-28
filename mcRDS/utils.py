@@ -8,8 +8,8 @@ from IPython.display import Math, display #display の整形用
 
 def displayEQ(leftsym, rightsym, eq='='):
     """等式・定義式の表示"""
-    if isinstance(leftsym, sp.Basic):
+    if not isinstance(leftsym, str): #latex文字列はそのまま
         leftsym = sp.latex(leftsym)
-    if isinstance(rightsym, sp.Basic):
+    if not isinstance(rightsym, str):
         rightsym = sp.latex(rightsym)
     display(Math( leftsym + eq + rightsym ))
